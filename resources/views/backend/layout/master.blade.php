@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{asset('backend')}}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('backend')}}/dist/css/adminlte.min.css">
+  <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -61,8 +62,19 @@
 <script src="{{asset('backend')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('backend')}}/dist/js/adminlte.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#image').change(function(e){
+      var reader = new FileReader();
+      reader.onload = function(e){
+        $('#showImage').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(e.target.files['0']);
+    })
+  })
+</script>
 <!-- Page specific script -->
 <script>
   $(function () {

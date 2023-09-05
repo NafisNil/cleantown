@@ -13,25 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('landlords', function (Blueprint $table) {
+        Schema::create('cleaners', function (Blueprint $table) {
             $table->id();
-            $table->string('name_en');
+            $table->string('name_en')->nullable();
             $table->string('name_bn');
             $table->string('father_name');
             $table->string('husband_name')->nullable();
-            $table->string('dob');
             $table->text('address');
-            $table->string('flat_no')->default('00');
-            $table->string('ownership')->default('L');
-            $table->string('email')->nullable();
-            $table->string('phone');
-            $table->string('nid')->unique();
-            $table->string('birth_cer')->unique();
-            $table->string('holding_type');
-            $table->string('status')->default(1);
-            $table->string('code');
             $table->string('ward_no');
             $table->string('holding_no');
+            $table->string('phone');
+            $table->string('nid');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }
@@ -43,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('landlords');
+        Schema::dropIfExists('cleaners');
     }
 };

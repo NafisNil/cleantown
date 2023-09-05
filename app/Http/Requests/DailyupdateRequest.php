@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LandlordRequest extends FormRequest
+class DailyupdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,18 +25,10 @@ class LandlordRequest extends FormRequest
     {
         return [
             //
-            'name_bn' => 'required|string',
-            'father_name' => 'required|string',
-            'dob' => 'required',
-            'address' => 'required',
-            'flat_no' => 'required',
-            'ownership' => 'required',
-            'phone' => 'required',
-            'nid' => 'required',
+            'volunteer_id' => 'required',
             'status' => 'required',
-            'code' => 'required',
-            'ward_no' => 'required',
-            'holding_no' => 'required'
+            'holding_no' => 'required',
+            'logo' => 'mimes:jpg,png,svg,jpeg,webp'
         ];
     }
 }

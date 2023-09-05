@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Landlord;
 use Illuminate\Http\Request;
-
+use Image;
+use App\Http\Requests\LandlordRequest;
 class LandlordController extends Controller
 {
     /**
@@ -15,6 +16,9 @@ class LandlordController extends Controller
     public function index()
     {
         //
+        $landlord = Landlord::orderBy('id', 'desc')->get();
+      
+         return view('backend.landlord.index',['landlord'=>$landlord]);
     }
 
     /**
@@ -25,6 +29,7 @@ class LandlordController extends Controller
     public function create()
     {
         //
+        return view('backend.landlord.create');
     }
 
     /**
@@ -33,9 +38,18 @@ class LandlordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LandlordRequest $request)
     {
         //
+        $landlord = Landlord::create($request->all());
+       $landlord->insert([
+            'code' => 'PM' . '-' . '0' . $request->ward_no . '-'
+            . $request->holding_no . '/'
+            . $request->flat_no . '-'
+            . $request->ownership
+       ]);
+       
+        return redirect()->route('activity.index')->with('success','Data inserted successfully');
     }
 
     /**
@@ -58,6 +72,9 @@ class LandlordController extends Controller
     public function edit(Landlord $landlord)
     {
         //
+        return view('backend.landlord.edit',[
+            'edit' => $landlord
+        ]);
     }
 
     /**
@@ -67,9 +84,11 @@ class LandlordController extends Controller
      * @param  \App\Models\Landlord  $landlord
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Landlord $landlord)
+    public function update(LandlordRequest $request, Landlord $landlord)
     {
         //
+        $landlord->update($request->all());
+        return redirect()->route('landlord.index')->with('success','Data inserted successfully');
     }
 
     /**
@@ -81,5 +100,7 @@ class LandlordController extends Controller
     public function destroy(Landlord $landlord)
     {
         //
+        $landlord->delete();
+        return redirect()->route('landlord.index')->with('status','Data deleted successfully!');
     }
 }
