@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('landlords', function (Blueprint $table) {
             $table->id();
-            $table->string('name_en');
+            $table->string('name_en')->nullable();
             $table->string('name_bn');
             $table->string('father_name');
             $table->string('husband_name')->nullable();
@@ -26,10 +26,10 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone');
             $table->string('nid')->unique();
-            $table->string('birth_cer')->unique();
-            $table->string('holding_type');
+            $table->string('birth_cer')->unique()->nullable();
+            $table->string('holding_type')->nullable();
             $table->string('status')->default(1);
-            $table->string('code');
+            $table->string('code')->nullable();
             $table->string('ward_no');
             $table->string('holding_no');
             $table->timestamps();

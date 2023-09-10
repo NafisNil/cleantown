@@ -20,15 +20,15 @@ return new class extends Migration
             $table->string('dob');
             $table->string('nid');
             $table->string('birth_cer')->nullable();
-            $table->string('name_en')->nullable();
-            $table->string('name_bn');
+            $table->string('name_en');
+            $table->string('name_bn')->nullable();
             $table->string('father_name');
-            $table->string('ward_no');
+            $table->string('ward_no')->nullable();
             $table->string('mobile');
             $table->string('email')->nullable();
             $table->text('address');
             $table->text('education');
-            $table->string('volunteer_id');
+            $table->string('volunteer_id')->nullable();
             $table->timestamps();
         });
     }

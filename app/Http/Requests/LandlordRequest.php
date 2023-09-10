@@ -33,8 +33,7 @@ class LandlordRequest extends FormRequest
             'ownership' => 'required',
             'phone' => 'required',
             'nid' => 'required',
-            'status' => 'required',
-            'code' => 'required',
+           
             'ward_no' => 'required',
             'holding_no' => 'required'
         ];

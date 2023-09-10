@@ -42,14 +42,14 @@ class LandlordController extends Controller
     {
         //
         $landlord = Landlord::create($request->all());
-       $landlord->insert([
+       $landlord->update([
             'code' => 'PM' . '-' . '0' . $request->ward_no . '-'
             . $request->holding_no . '/'
             . $request->flat_no . '-'
             . $request->ownership
        ]);
        
-        return redirect()->route('activity.index')->with('success','Data inserted successfully');
+        return redirect()->route('landlord.index')->with('success','Data inserted successfully');
     }
 
     /**
@@ -61,6 +61,10 @@ class LandlordController extends Controller
     public function show(Landlord $landlord)
     {
         //
+     
+        return view('backend.landlord.show',[
+            'landlord' => $landlord
+        ]);
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cleaner;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\CleanerRequest;
 class CleanerController extends Controller
 {
     /**
@@ -15,6 +15,10 @@ class CleanerController extends Controller
     public function index()
     {
         //
+        $cleaner = Cleaner::orderBy('id', 'desc')->get();
+      
+         return view('backend.cleaner.index',['cleaner'=>$cleaner]);
+
     }
 
     /**
@@ -25,6 +29,7 @@ class CleanerController extends Controller
     public function create()
     {
         //
+        return view('backend.cleaner.create');
     }
 
     /**
@@ -33,9 +38,12 @@ class CleanerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CleanerRequest $request)
     {
         //
+        $cleaner = Cleaner::create($request->all());
+     
+         return redirect()->route('cleaner.index')->with('success','Data inserted successfully');
     }
 
     /**
@@ -47,6 +55,9 @@ class CleanerController extends Controller
     public function show(Cleaner $cleaner)
     {
         //
+        return view('backend.cleaner.show',[
+            'cleaner' => $cleaner
+        ]);
     }
 
     /**
@@ -58,6 +69,9 @@ class CleanerController extends Controller
     public function edit(Cleaner $cleaner)
     {
         //
+        return view('backend.cleaner.edit',[
+            'edit' => $cleaner
+        ]);
     }
 
     /**
@@ -67,9 +81,11 @@ class CleanerController extends Controller
      * @param  \App\Models\Cleaner  $cleaner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cleaner $cleaner)
+    public function update(CleanerRequest $request, Cleaner $cleaner)
     {
         //
+        $cleaner->update($request->all());
+        return redirect()->route('cleaner.index')->with('success','Data inserted successfully');
     }
 
     /**
@@ -81,5 +97,7 @@ class CleanerController extends Controller
     public function destroy(Cleaner $cleaner)
     {
         //
+        $cleaner->delete();
+        return redirect()->route('cleaner.index')->with('status','Data deleted successfully!');
     }
 }
