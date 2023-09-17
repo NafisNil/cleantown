@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Volunteer;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\VolunteerRequest;
 class VolunteerController extends Controller
 {
     /**
@@ -15,6 +15,8 @@ class VolunteerController extends Controller
     public function index()
     {
         //
+        $volunteer = Volunteer::orderBy('id','desc')->get();
+        return view('')
     }
 
     /**
@@ -33,9 +35,15 @@ class VolunteerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VolunteerRequest $request)
     {
         //
+        $volunteer = Volunteer::create($request->all());
+        $uniqueCode = 'PMV' . '-' . '0' . $request->word_no . '-' . $request->holding_no;
+        $volunteer->update([
+            'volunteer_id' => $uniqueCode
+       ]);
+        return redirect()->back()->with('success','Application submitted successfully!');
     }
 
     /**

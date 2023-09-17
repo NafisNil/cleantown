@@ -32,10 +32,10 @@ class VolunteerRequest extends FormRequest
             'name_bn' => 'required',
             'father_name' => 'required',
             'ward_no' => 'required',
-            'mobile_no' => 'required|number',
+            'mobile_no' => 'required|numeric',
             'address' => 'required',
             'education' => 'required',
-            'volunteer_id' => 'required'
+           
         ];
     }
 }

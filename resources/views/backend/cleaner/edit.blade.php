@@ -1,6 +1,6 @@
 @extends('backend.layout.master')
 @section('title')
-    Landlord - edit - Cleantown
+    Cleaner  - edit - Cleantown
 @endsection
 
 @section('content')
@@ -9,12 +9,12 @@
     <div class="container">
       <div class="row mb-2">
         <div class="col-sm-6 offset-3">
-          <h1>landlord Form</h1>
+          <h1>Cleaner Form</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">landlord Form</li>
+            <li class="breadcrumb-item active">Cleaner Form</li>
           </ol>
         </div>
       </div>
@@ -30,14 +30,14 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">landlord Form </h3>
+              <h3 class="card-title">Cleaner Form </h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('landlord.update',[$edit])}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('cleaner.update',[$edit])}}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('PUT')
-            @include('backend.landlord.form')
+            @include('backend.cleaner.form')
                     </form>
           </div>
           <!-- /.card -->

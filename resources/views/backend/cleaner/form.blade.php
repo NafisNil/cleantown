@@ -27,12 +27,6 @@
        
       </div>
 
-      <div class="form-group">
-        <label for="exampleInputEmail1">  Date of Birth </label>
-       
-        <input type="date" class="form-control" name="dob" value="{!!old('dob',@$edit->dob)!!}">
-       
-      </div>
 
       
 <div class="form-group">
@@ -42,29 +36,7 @@
  
 </div>
 
-<div class="form-group">
-    <label for="exampleInputEmail1">  Flat No. </label>
-   
-    <input type="text" class="form-control" name="flat_no" value="{!!old('flat_no',@$edit->flat_no)!!}">
-   
-  </div>
 
-  <div class="form-group">
-    <label for="exampleInputEmail1">  Ownership. </label>
-   
-    <select name="ownership" class="form-control" id="">
-      <option value="L">বাড়ীর মালিক (Land Owner)</option>
-      <option value="O"> দখলদার (Occupant)</option>
-  </select>
-   
-  </div>
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">  Email. </label>
-   
-    <input type="text" class="form-control" name="email" value="{!!old('email',@$edit->email)!!}">
-   
-  </div>
 
   <div class="form-group">
     <label for="exampleInputEmail1">  Phone. </label>
@@ -80,29 +52,6 @@
    
   </div>
 
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">  Birth Certificate. </label>
-   
-    <input type="number" class="form-control" name="birth_cer" value="{!!old('birth_cer',@$edit->birth_cer)!!}" min="9">
-   
-  </div>
-
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">  Holding Type </label>
-   
-    <select name="holding_type" class="form-control" id="">
-      <option value="বাসা">বাসা</option>
-      <option value="দোকান">দোকান</option>
-      <option value="অফিস">অফিস</option>
-      <option value="হাসপাতাল">হাসপাতাল</option>
-      <option value="ধর্মীয় প্রতিষ্ঠান">ধর্মীয় প্রতিষ্ঠান</option>
-      <option value="শিক্ষা প্রতিষ্ঠান">শিক্ষা প্রতিষ্ঠান</option>
-      <option value="অন্যান্য">অন্যান্য</option>
-  </select>
-   
-  </div>
 
   <div class="form-group">
     <label for="exampleInputEmail1">  Ward No</label>

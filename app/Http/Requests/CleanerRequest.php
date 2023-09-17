@@ -32,7 +32,7 @@ class CleanerRequest extends FormRequest
             'holding_no' => 'required',
             'phone' => 'required',
             'nid' => 'required',
-            'status' => 'required'
+           
         ];
     }
 }

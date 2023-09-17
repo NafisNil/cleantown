@@ -100,4 +100,19 @@ class CleanerController extends Controller
         $cleaner->delete();
         return redirect()->route('cleaner.index')->with('status','Data deleted successfully!');
     }
+
+    public function active($id){
+        $cleaner = Cleaner::find($id);
+        $cleaner->status = 1;
+        $cleaner->save();
+        return redirect()->route('cleaner.index')->with('status','Data updated successfully!');
+    }
+
+
+    public function pending($id){
+        $cleaner = Cleaner::find($id);
+        $cleaner->status = 0;
+        $cleaner->save();
+        return redirect()->route('cleaner.index')->with('status','Data updated successfully!');
+    }
 }

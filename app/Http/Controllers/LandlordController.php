@@ -107,4 +107,20 @@ class LandlordController extends Controller
         $landlord->delete();
         return redirect()->route('landlord.index')->with('status','Data deleted successfully!');
     }
+
+
+    public function active($id){
+        $landlord = Landlord::find($id);
+        $landlord->status = 1;
+        $landlord->save();
+        return redirect()->route('landlord.index')->with('status','Data updated successfully!');
+    }
+
+
+    public function pending($id){
+        $landlord = Landlord::find($id);
+        $landlord->status = 0;
+        $landlord->save();
+        return redirect()->route('landlord.index')->with('status','Data updated successfully!');
+    }
 }

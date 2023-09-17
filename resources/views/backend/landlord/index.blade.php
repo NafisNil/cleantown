@@ -44,6 +44,7 @@
                     <th>NID</th>
                     <th>Holding No</th>
                     <th>Phone</th>
+                    <th>Status</th>
                     <th>Action</th>
                    
                   </tr>
@@ -64,6 +65,14 @@
                    <td>{{@$item->nid}}</td>
                    <td>{{@$item->holding_no}}</td>
                    <td>{{@$item->phone}}</td>
+
+                   <td>
+                      @if ($item->status == '0')
+                          <a href="{{route('landlord_active', $item->id)}}"><p class="text-warning">Pending</p></a>
+                      @else
+                      <a href="{{route('landlord_pending', $item->id)}}"><p class="text-success">Active</p></a>
+                      @endif
+                   </td>
                    <td>
             
                       <a href="{{route('landlord.edit',[$item])}}"><button title="Edit" class="btn btn-outline-info btn-sm"><i class="fas fa-pen-square"></i></button></a>
@@ -91,6 +100,7 @@
                     <th>NID</th>
                     <th>Holding No</th>
                     <th>Phone</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>
