@@ -1,6 +1,6 @@
 @extends('backend.layout.master')
 @section('title')
-    Landlord - Cleantown
+    Volunteer - Cleantown
 @endsection
 
 @section('content')
@@ -9,12 +9,12 @@
     <div class="container">
       <div class="row mb-2">
         <div class="col-sm-6 offset-3">
-          <h1>landlord Form</h1>
+          <h1>Volunteer Form</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">landlord Form</li>
+            <li class="breadcrumb-item active">Volunteer Form</li>
           </ol>
         </div>
       </div>
@@ -35,22 +35,25 @@
               <div class="card-body box-profile">
            
 
-                <h3 class="profile-username text-center">{{@$landlord->name_bn}}</h3>
+                <h3 class="profile-username text-center">{{@$volunteer->name_bn}}</h3>
 
-                <p class="text-muted text-center">{{@$landlord->name_en}}</p>
-
+                <p class="text-muted text-center">{{@$volunteer->name_en}}</p>
+                <p class="text-muted text-center"> <b>Volunteer ID and Password : </b> {{@$volunteer->volunteer_id}}</p>
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Fathers Name</b> <a class="float-right">{{@$landlord->father_name}}</a>
+                    <b>Fathers Name</b> <a class="float-right">{{@$volunteer->father_name}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Husband Name</b> <a class="float-right">{{@$landlord->husband_name}}</a>
+                    <b>Ward No</b> <a class="float-right">{{@$volunteer->ward_no}}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Holding No</b> <a class="float-right"><b>{{@$landlord->holding_no}}</b> </a>
+                    <b>Holding No</b> <a class="float-right"><b>{{@$volunteer->holding_no}}</b> </a>
                   </li>
                   <li class="list-group-item">
-                    <b>Flat No</b> <a class="float-right"><b>{{@$landlord->flat_no}}</b> </a>
+                    <b>Flat No</b> <a class="float-right"><b>{{@$volunteer->flat_no}}</b> </a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Date of Birth</b> <a class="float-right"><b>{{@$volunteer->dob}}</b> </a>
                   </li>
                 </ul>
 
@@ -70,41 +73,29 @@
                 <strong><i class="fas fa-book mr-1"></i> NID/ Birth Certificate</strong>
 
                 <p class="text-muted">
-                  {{@$landlord->nid}} /   {{@$landlord->birth_cer}} 
+                  {{@$volunteer->nid}} /   {{@$volunteer->birth_cer}} 
                 </p>
 
                 <hr>
                 <strong><i class="fas fa-book mr-1"></i> Phone/ Email</strong>
 
                 <p class="text-muted">
-                  {{@$landlord->phone}} /   {{@$landlord->email}} 
+                  {{@$volunteer->mobile_no}} /   {{@$volunteer->email}} 
                 </p>
 
                 <hr>
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Address</strong>
 
-                <p class="text-muted">{!!@$landlord-> address!!}</p>
+                <p class="text-muted">{!!@$volunteer-> address!!}</p>
 
                 <hr>
 
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Holiding Type</strong>
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Education</strong>
 
-                <p class="text-muted">
-                  {{@$landlord->holding_type}}
-                </p>
+                <p class="text-muted">{!!@$volunteer->education!!}</p>
 
                 <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Ownership</strong>
-
-                <p class="text-muted">
-                  @if ($landlord->ownership == "L")
-                  বাড়ীর মালিক (Land Owner)
-                  @else
-                  দখলদার (Occupant)
-                  @endif
-                </p>
               </div>
               <!-- /.card-body -->
             </div>

@@ -72,7 +72,7 @@
                 <p class="creadits">
                    &copy; 2023
                    Created by:
-                   <a class="link" href="#">ari Team</a>
+                   <a class="link" href="https://lab-ar.com/">Lab AR</a>
                 </p>
              </div>
              <div class="col-12 col-md-6">

@@ -9,23 +9,23 @@
           <div class="menu-toggler-btn"><span></span><span></span><span></span></div>
           <div class=" navbar-menu-wraper  " id="navbar-menu-wraper">
              <ul class="navbar-nav  mobile-menu ">
-                <li class="nav-item">
-                   <a class="nav-link active" href="{{route('index')}}">হোম</a>
+               <li class="nav-item">
+                  <a class="nav-link active" href="{{url('/')}}">হোম</a>
                 </li>
                 <li class="nav-item">
-                   <a class="nav-link " href="about.html">সম্পর্কিত</a>
+                  <a class="nav-link " href="#">সম্পর্কিত</a>
                 </li>
                 <li class="nav-item">
-                   <a class="nav-link " href="landlord.html">হোল্ডিংধারী</a>
+                  <a class="nav-link " href="#">হোল্ডিংধারী / দখলদার</a>
                 </li>
                 <li class="nav-item">
-                   <a class="nav-link  " href="staff.html">স্বেচ্ছাসেবী</a>
+                  <a class="nav-link  " href="#">স্বেচ্ছাসেবী</a>
                 </li>
                 <li class="nav-item">
-                   <a class="nav-link " href="blogs.html">ব্লগ</a>
+                  <a class="nav-link " href="#">ব্লগ</a>
                 </li>
                 <li class="nav-item">
-                   <a class="nav-link " href="contact.html">যোগাযোগ</a>
+                  <a class="nav-link " href="{{route('contact_us')}}">যোগাযোগ</a>
                 </li>
              </ul>
           </div>

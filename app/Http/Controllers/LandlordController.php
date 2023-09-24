@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Landlord;
+use App\Models\Dailyupdate;
 use Illuminate\Http\Request;
 use Image;
 use App\Http\Requests\LandlordRequest;
@@ -122,5 +123,30 @@ class LandlordController extends Controller
         $landlord->status = 0;
         $landlord->save();
         return redirect()->route('landlord.index')->with('status','Data updated successfully!');
+    }
+
+    public function dashboard(){
+        return view('frontend.user_login');
+    }
+
+    public function login(Request $request){
+        $id = $request->user_id;
+        $landlord = Landlord::where('code', $id)->first();
+       
+        return view('backend.landlord.show', ['landlord' => $landlord]);
+    }
+
+
+    public function dailyupdateindex($id){
+        $landlord = Landlord::where('id', $id)->first();
+        $dailyupdate  = Dailyupdate::where('holding_no', $landlord->holding_no)->orderBy('id','desc')->get();
+        return view('backend.dailyupdate.index', ['dailyupdate' => $dailyupdate]);
+    }
+
+    public function complain($id){
+        $dailyupdate = Dailyupdate::find($id);
+        $dailyupdate->complain = 1;
+        $dailyupdate->save();
+        return redirect()->back()->with('success', 'Complained generated successfully!');
     }
 }

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dailyupdate;
+use App\Models\Landlord;
 use Illuminate\Http\Request;
-
+use Image;
+use App\Http\Requests\DailyupdateRequest;
 class DailyupdateController extends Controller
 {
     /**
@@ -15,6 +17,8 @@ class DailyupdateController extends Controller
     public function index()
     {
         //
+        $dailyupdate  = Dailyupdate::orderBy('id','desc')->get();
+            return view('backend.dailyupdate.index', ['dailyupdate' => $dailyupdate]);
     }
 
     /**
@@ -25,6 +29,8 @@ class DailyupdateController extends Controller
     public function create()
     {
         //
+        $landlord  = Landlord::all();
+        return view('backend.dailyupdate.create', ['landlord' => $landlord]);
     }
 
     /**
@@ -33,9 +39,15 @@ class DailyupdateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DailyupdateRequest $request)
     {
         //
+        $dailyupdate = Dailyupdate::create($request->all());
+       
+        if ($request->hasFile('logo')) {
+            $this->_uploadImage($request, $dailyupdate);
+        }
+        return redirect()->route('dailyupdatevolunteer.index')->with('success','Data inserted successfully');
     }
 
     /**
@@ -81,5 +93,18 @@ class DailyupdateController extends Controller
     public function destroy(Dailyupdate $dailyupdate)
     {
         //
+    }
+
+    private function _uploadImage($request, $about)
+    {
+        # code...
+        if( $request->hasFile('logo') ) {
+            $image = $request->file('logo');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(300, 300)->save('storage/' . $filename);
+            $about->logo = $filename;
+            $about->save();
+        }
+       
     }
 }

@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('complains', function (Blueprint $table) {
-            $table->id();
-            $table->string('volunteer_id');
-            $table->string('date');
-            $table->string('landlord_id');
-            $table->string('logo')->nullable();
-            $table->timestamps();
+        Schema::table('dailyupdates', function (Blueprint $table) {
+            //
+            $table->string('complain')->default(0);
+            $table->string('complain_by')->nullable();
         });
     }
 
@@ -30,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('complains');
+        Schema::table('dailyupdates', function (Blueprint $table) {
+            //
+        });
     }
 };

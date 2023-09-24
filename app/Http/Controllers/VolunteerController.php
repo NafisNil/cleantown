@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Volunteer;
+use App\Models\Dailyupdate;
+use App\Models\User;
+use App\Models\Landlord;
 use Illuminate\Http\Request;
 use App\Http\Requests\VolunteerRequest;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 class VolunteerController extends Controller
 {
     /**
@@ -16,7 +21,7 @@ class VolunteerController extends Controller
     {
         //
         $volunteer = Volunteer::orderBy('id','desc')->get();
-        return view('')
+        return view('backend.volunteer.index', ['volunteer' => $volunteer]);
     }
 
     /**
@@ -55,6 +60,9 @@ class VolunteerController extends Controller
     public function show(Volunteer $volunteer)
     {
         //
+        return view('backend.volunteer.show',[
+            'volunteer' => $volunteer
+        ]);
     }
 
     /**
@@ -66,6 +74,9 @@ class VolunteerController extends Controller
     public function edit(Volunteer $volunteer)
     {
         //
+        return view('backend.volunteer.edit',[
+            'edit' => $volunteer
+        ]);
     }
 
     /**
@@ -75,9 +86,11 @@ class VolunteerController extends Controller
      * @param  \App\Models\Volunteer  $volunteer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Volunteer $volunteer)
+    public function update(VolunteerRequest $request, Volunteer $volunteer)
     {
         //
+       $volunteer->update($request->all());
+        return redirect()->route('volunteer_profile')->with('success','Data inserted successfully');
     }
 
     /**
@@ -90,4 +103,54 @@ class VolunteerController extends Controller
     {
         //
     }
+
+
+    public function active($id){
+        $volunteer = Volunteer::find($id);
+        $user = new User;
+        $user->name = $volunteer->name_en;
+        $user->phone = $volunteer->phone;
+        $user->email = $volunteer->email;
+        $user->role ="volunteer";
+        $user->user_id = $volunteer->volunteer_id;
+        $user->password = Hash::make($volunteer->volunteer_id);
+
+        $volunteer->status = 1;
+        $volunteer->save();
+        $user->save();
+        return redirect()->route('volunteer.index')->with('status','Data updated successfully!');
+    }
+
+
+    public function pending($id){
+        $volunteer = Volunteer::find($id);
+
+        $volunteer->status = 0;
+        $volunteer->save();
+        return redirect()->route('volunteer.index')->with('status','Data updated successfully!');
+    }
+
+    //for volunteer
+    public function volunteer_profile(){
+        $volunteer = Volunteer::where('id', Auth::user()->id)->first();
+        return view('backend.volunteer.volunteer_profile', ['volunteer' => $volunteer]);
+    }
+
+    public function dailyupdateindex(){
+            $dailyupdate  = Dailyupdate::where('volunteer_id', Auth::user()->user_id)->orderBy('id','desc')->get();
+            return view('backend.dailyupdate.index', ['dailyupdate' => $dailyupdate]);
+    }
+
+    public function get_holding(Request $request){
+        $query = $request->input('query');
+        $holdingNumbers = Landlord::where('holding_no', 'like', '%' . $query . '%')->pluck('holding_no');
+
+        return response()->json($holdingNumbers);
+    }
+
+    public function complain_index_volunteer(){
+        $dailyupdate  = Dailyupdate::where('complain', 1)->where('volunteer_id', Auth::user()->user_id)->orderBy('id','desc')->get();
+        return view('backend.dailyupdate.complain', ['dailyupdate' => $dailyupdate]);
+    }
+    
 }

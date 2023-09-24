@@ -49,9 +49,7 @@
                                 </p>
                              </div>
                              <div class="col-12 ">
-                                <div class="cta-links-area "><a class=" ma-btn-primary cta-link cta-link-primary  "
-                                   href="#0">start
-                                   now</a><a class=" ma-btn-primary cta-link  " href="#0">Contact
+                                <div class="cta-links-area "><a class=" ma-btn-primary cta-link  " href="#0">Contact
                                    us</a>
                                 </div>
                              </div>
@@ -84,9 +82,7 @@
                                 </p>
                              </div>
                              <div class="col-12 ">
-                                <div class="cta-links-area "><a class=" ma-btn-primary cta-link cta-link-primary  "
-                                   href="#0">start
-                                   now</a><a class=" ma-btn-primary cta-link  " href="#0">Contact
+                                <div class="cta-links-area "><a class=" ma-btn-primary cta-link  " href="#0">Contact
                                    us</a>
                                 </div>
                              </div>
@@ -119,9 +115,7 @@
                                 </p>
                              </div>
                              <div class="col-12 ">
-                                <div class="cta-links-area "><a class=" ma-btn-primary cta-link cta-link-primary  "
-                                   href="#0">start
-                                   now</a><a class=" ma-btn-primary cta-link  " href="#0">Contact
+                                <div class="cta-links-area "><a class=" ma-btn-primary cta-link  " href="#0">Contact
                                    us</a>
                                 </div>
                              </div>
@@ -154,9 +148,7 @@
                                 </p>
                              </div>
                              <div class="col-12 ">
-                                <div class="cta-links-area "><a
-                                   class=" ma-btn-primary cta-link cta-link-primary  " href="#0">start
-                                   now</a><a class=" ma-btn-primary cta-link  " href="#0">Contact
+                                <div class="cta-links-area "><a class=" ma-btn-primary cta-link  " href="#0">Contact
                                    us</a>
                                 </div>
                              </div>
@@ -189,9 +181,7 @@
                                 </p>
                              </div>
                              <div class="col-12 ">
-                                <div class="cta-links-area "><a
-                                   class=" ma-btn-primary cta-link cta-link-primary  " href="#0">start
-                                   now</a><a class=" ma-btn-primary cta-link  " href="#0">Contact
+                                <div class="cta-links-area "><a class=" ma-btn-primary cta-link  " href="#0">Contact
                                    us</a>
                                 </div>
                              </div>
@@ -288,16 +278,35 @@
      </section>
      <!-- End  about Section-->
      <!-- start  map Section-->
-     <section class="faq mega-section  section-bg-shade">
+   <!-- start  map Section-->
+   <section class="faq mega-section  section-bg-shade">
+      <div class="section-heading center-heading">
+        <h2 class="section-title wow" data-splitting="words">পাঁচবিবি পৌরসভা ম্যাপ</h2>
+        <div class="line line-solid-main-color wow fadeIn" data-wow-delay="1s"></div>
+      </div>
+      <iframe
+        src="http://map.panchbibimunicipality.com"
+        width="100%" height="500" style="border:0;" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+    <!-- End  map Section-->
+    
+      <!-- Start  notice Section-->
+    <section class="faq mega-section  section-bg-shade">
+      <div class="container">
         <div class="section-heading center-heading">
-           <h2 class="section-title wow" data-splitting="words">পাঁচবিবি পৌরসভা ম্যাপ</h2>
-           <div class="line line-solid-main-color wow fadeIn" data-wow-delay="1s"></div>
+          <h2 class="section-title wow" data-splitting="words">পাঁচবিবি পৌরসভার সকল ডাস্টবিনড</h2>
+          <!--<p class="section-subtitle wow fadeInUp" data-wow-delay=".5s">-->
+          <!--  এখানে সকল আপডেট নিউজ গুলো দেয়া হবে-->
+          <!--</p>-->
+          <div class="line line-solid-main-color wow fadeIn" data-wow-delay="1s"></div>
         </div>
-        <iframe
-           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233685.56378017913!2d90.40799758788336!3d23.771013336572388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1691302128084!5m2!1sen!2sbd"
-           width="100%" height="500" style="border:0;" allowfullscreen loading="lazy"
-           referrerpolicy="no-referrer-when-downgrade"></iframe>
-     </section>
+        <div class="row">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7221.014713768598!2d89.019599!3d25.186107200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fc940070da14f9%3A0xa527bcae7ea4b610!2sPanchbibi!5e0!3m2!1sen!2sbd!4v1695013367167!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+    <!-- End  notice Section-->
      <!-- End  map Section-->
      <!-- Start  notice Section-->
      <section class="faq mega-section  section-bg-shade">
@@ -881,7 +890,7 @@
      </section>
      <!-- End  portfolio Section-->
      <!-- Start  our-video Section-->
-     <section class="our-video mega-section" id="our-video">
+     <!--<section class="our-video mega-section" id="our-video">
         <div class="overlay-image-bg   "></div>
         <div class="overlay-color"></div>
         <div class="container">
@@ -914,7 +923,7 @@
               </div>
            </div>
         </div>
-     </section>
+     </section>-->
      <!-- End  our-video Section-->
      <!-- Start  testimonials-2-col-->
      <section class="testimonials testimonials-2-col d-flex align-items-center mega-section  " id="testimonials">

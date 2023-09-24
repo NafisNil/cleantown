@@ -43,6 +43,13 @@
 </div>
 
 <div class="form-group">
+  <label for="exampleInputEmail1">Education <span style="color:red" >*</span></label>
+ <textarea name="education" id="general" cols="30" rows="10" class="form-control" >{!!old('education',@$edit->education)!!}</textarea>
+
+ 
+</div>
+
+<div class="form-group">
     <label for="exampleInputEmail1">  Flat No. </label>
    
     <input type="text" class="form-control" name="flat_no" value="{!!old('flat_no',@$edit->flat_no)!!}">
@@ -69,7 +76,7 @@
   <div class="form-group">
     <label for="exampleInputEmail1">  Phone. </label>
    
-    <input type="text" class="form-control" name="phone" value="{!!old('phone',@$edit->phone)!!}">
+    <input type="text" class="form-control" name="mobile_no" value="{!!old('mobile_no',@$edit->mobile_no)!!}">
    
   </div>
 
