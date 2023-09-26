@@ -396,7 +396,7 @@
                  <ul class="nav nav-tabs card-header-tabs " data-bs-tabs="tabs">
                     <li class="nav-item">
                        <a href="#now_day" class="btn btn-dark m-2 mb-3   active " id="now-day"
-                          aria-current="true" data-bs-toggle="tab">৪0 আগস্ট 2023</a>
+                          aria-current="true" data-bs-toggle="tab">আজকের রেকর্ড</a>
                     </li>
                     <li class="nav-item">
                        <a href="#seven_day" class="btn btn-dark m-2 mb-3  medium yellow " aria-current="false"
@@ -463,76 +463,44 @@
                                 </tr>
                              </thead>
                              <tbody>
-                                <tr>
-                                   <td>০৫</td>
-                                   <td> মো আবু সাঈদ</td>
-                                   <td>৯০</td>
-                                   <td>১০</td>
-                                   <td>০০</td>
-                                </tr>
-                                <tr>
-                                   <td>০৫</td>
-                                   <td> মুক্তা ওয়াকিল শুভ</td>
-                                   <td>৯০</td>
-                                   <td>৫</td>
-                                   <td>৫</td>
-                                </tr>
-                                <tr>
-                                   <td>০৫</td>
-                                   <td>উজ্জল দাস</td>
-                                   <td>৮০</td>
-                                   <td>১৫</td>
-                                   <td>৫</td>
-                                </tr>
-                                <tr>
-                                   <td>০৫</td>
-                                   <td>চন্দনা রানী</td>
-                                   <td>৭০</td>
-                                   <td>৩০</td>
-                                   <td>০০</td>
-                                </tr>
-                                <tr>
-                                   <td>০৫</td>
-                                   <td>মহাদেব মহন্ত</td>
-                                   <td>৭০</td>
-                                   <td>২০</td>
-                                   <td>১০</td>
-                                </tr>
-                                <tr>
-                                   <td>০৫</td>
-                                   <td>মোঃ চয়েন আলী</td>
-                                   <td>৬০</td>
-                                   <td>৩০</td>
-                                   <td>১০</td>
-                                </tr>
-                                <tr>
-                                   <td>০৫</td>
-                                   <td>মোঃ মাহাবুব আলম বাবু</td>
-                                   <td>৬০</td>
-                                   <td>১০</td>
-                                   <td>৩০</td>
-                                </tr>
-                                <tr>
-                                   <td>০৫</td>
-                                   <td>মোছাঃ ইয়াসমিন</td>
-                                   <td>৫০</td>
-                                   <td>৪০</td>
-                                   <td>১০</td>
-                                </tr>
-                                <tr>
-                                   <td>০৫</td>
-                                   <td> মোছাঃ কহিনুর বেগম</td>
-                                   <td>৫০</td>
-                                   <td>৩০</td>
-                                   <td>২০</td>
-                                </tr>
-                                <tr>
-                                   <td>০৫</td>
-                                   <td>মোঃ আমিনুল ইসলাম</td>
-                                   <td>৪৫</td>
-                                   <td>৩৫</td>
-                                   <td>২০</td>
-                                </tr>
+                              @foreach ($dailyupdate as $key=>$item)
+                              <tr>
+                                 @php
+                                 $users = App\Models\Landlord::where('holding_no', $item->holding_no)->get();
+                             @endphp
+                                 <td>{{@$users[0]->ward_no}}</td>
+                                 <td> 
+                               
+
+                                 @foreach ($users as $key=>$user)
+                              {{$user->name_bn}}
+                                 @endforeach
+                                 </td>
+                                 <td>
+                                    @if ($item->status == 'A')
+                                        
+                                 ১০০
+                                        
+                                    @endif
+                                 </td>
+                                 <td>
+                                    @if ($item->status == 'B')
+                                        
+                                    ১০০
+                                           
+                                       @endif
+                                 </td>
+                                 <td>
+                                    @if ($item->status == 'C')
+                                        
+                                    ১০০
+                                           
+                                       @endif
+                                 </td>
+                              </tr>
+                              @endforeach
+                      
+
                              </tbody>
                           </table>
                        </div>
